@@ -19,7 +19,7 @@ const AuthPage = () => {
               isSignIn ? "bg-blue-500 text-white" : "bg-gray-300 text-gray-700"
             } focus:outline-none`}
           >
-            Sign In
+            Sign Up
           </button>
           <button
             onClick={() => setIsSignIn(false)}

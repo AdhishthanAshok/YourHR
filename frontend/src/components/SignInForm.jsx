@@ -70,7 +70,7 @@ const SignInForm = () => {
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-lg p-2 w-full lg:w-2/3"
       >
-        <h2 className="text-3xl font-bold mb-6 text-center">Sign In</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center">Sign Up</h2>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="col-span-1">
             <input
