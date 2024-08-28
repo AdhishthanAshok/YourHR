@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignInForm = () => {
   const [formData, setFormData] = useState({
@@ -54,15 +56,16 @@ const SignInForm = () => {
           },
         }
       );
-      console.log("Sign-in Success:", response.data);
+      toast.success("User Added Successfully!");
       navigate("/home");
     } catch (error) {
-      console.error("Error during sign-in:", error);
+      toast.error("Failed to add User.");
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4">
+      <ToastContainer />
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-lg p-2 w-full lg:w-2/3"

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -27,12 +29,16 @@ const LoginForm = () => {
         // Handle successful login
         navigate("/home");
       } else {
+        toast.error("Please Enter Correct Password");
       }
-    } catch (error) {}
+    } catch (error) {
+      toast.error("Failed to add product.");
+    }
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto p-4">
+      <ToastContainer />
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-lg p-8 w-full"
