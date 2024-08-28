@@ -47,7 +47,12 @@ const SignInForm = () => {
     try {
       const response = await axios.post(
         "https://yourhr-cyan.vercel.app/signin",
-        data
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       console.log("Sign-in Success:", response.data);
       navigate("/home");
