@@ -11,10 +11,13 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://yourhr-cyan.vercel.app/login",
+        {
+          email,
+          password,
+        }
+      );
       if (response.data.success) {
         // Handle successful login
         navigate("/home");

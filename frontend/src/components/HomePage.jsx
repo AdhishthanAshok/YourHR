@@ -39,7 +39,7 @@ const HomePage = () => {
   // Fetch all users
   const fetchInfo = async () => {
     try {
-      const response = await fetch("http://localhost:4000/allUsers");
+      const response = await fetch("https://yourhr-cyan.vercel.app/allUsers");
       const data = await response.json();
       setAllUsers(data);
     } catch (error) {}

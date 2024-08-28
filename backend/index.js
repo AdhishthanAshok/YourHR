@@ -9,10 +9,9 @@ require("dotenv").config();
 
 const app = express();
 const port = 4000;
-app.use(cors());
 app.use(
   cors({
-    origin: ["https://glamgait-shopping.vercel.app"],
+    origin: ["https://yourhr-jobboard.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "auth-token"],
