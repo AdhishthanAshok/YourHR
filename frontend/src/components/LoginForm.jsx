@@ -29,10 +29,10 @@ const LoginForm = () => {
         toast.success("Logged In");
         navigate("/home");
       } else {
-        toast.error("Please Enter Correct Password");
+        toast.error("Failed to Login.");
       }
     } catch (error) {
-      toast.error("Failed to Login.");
+      toast.error("Please Enter Correct Password");
     }
   };
 
