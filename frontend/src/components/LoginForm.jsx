@@ -26,13 +26,13 @@ const LoginForm = () => {
         }
       );
       if (response.data.success) {
-        // Handle successful login
+        toast.success("Logged In");
         navigate("/home");
       } else {
         toast.error("Please Enter Correct Password");
       }
     } catch (error) {
-      toast.error("Failed to add product.");
+      toast.error("Failed to Login.");
     }
   };
 
