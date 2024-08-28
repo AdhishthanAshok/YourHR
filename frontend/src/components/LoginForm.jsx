@@ -16,6 +16,11 @@ const LoginForm = () => {
         {
           email,
           password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Add other headers if required
+          },
         }
       );
       if (response.data.success) {
