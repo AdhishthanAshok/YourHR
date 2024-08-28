@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
     try {
       const response = await axios.post(
@@ -25,18 +22,12 @@ const LoginForm = () => {
         // Handle successful login
         navigate("/home");
       } else {
-        toast.error("Login failed. Please check your credentials.");
       }
-    } catch (error) {
-      toast.error("An error occurred. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    } catch (error) {}
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-md mx-auto p-4">
-      <ToastContainer />
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-lg p-8 w-full"
@@ -66,13 +57,8 @@ const LoginForm = () => {
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
         >
-          {loading ? "Loading..." : "Login"}
+          Login
         </button>
-        {loading && (
-          <div className="flex justify-center mt-4">
-            <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
-          </div>
-        )}
       </form>
     </div>
   );

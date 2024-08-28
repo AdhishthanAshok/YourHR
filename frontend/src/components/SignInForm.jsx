@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 
 const SignInForm = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +12,8 @@ const SignInForm = () => {
     skills: "",
     pdf: null,
   });
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -34,7 +32,6 @@ const SignInForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
     const data = new FormData();
     data.append("name", formData.name);
@@ -52,18 +49,15 @@ const SignInForm = () => {
         "https://yourhr-cyan.vercel.app/signin",
         data
       );
-      toast.success("Sign-in successful!");
+      console.log("Sign-in Success:", response.data);
       navigate("/home");
     } catch (error) {
-      toast.error("Error during sign-in. Please try again.");
-    } finally {
-      setLoading(false); // Hide loading indicator
+      console.error("Error during sign-in:", error);
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4">
-      <ToastContainer />
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-lg p-2 w-full lg:w-2/3"
@@ -151,13 +145,7 @@ const SignInForm = () => {
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mt-4"
         >
-          {loading ? (
-            <div className="flex justify-center">
-              <div className="w-6 h-6 border-4 border-white border-t-transparent border-solid rounded-full animate-spin"></div>
-            </div>
-          ) : (
-            "Sign In"
-          )}
+          Sign In
         </button>
       </form>
     </div>
