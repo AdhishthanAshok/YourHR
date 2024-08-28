@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 const AuthPage = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   return (
-    <div className="flex flex-col items-center justify-center gap-4 bg-gray-200 h-screen p-4">
+    <div className="flex flex-col items-center justify-center gap-4 bg-gray-200 h-auto  p-4">
       <img
         src="https://th.bing.com/th/id/OIG2.fsTCR5X8uCigV7ftWoDv?pid=ImgGn"
         alt="YH"
